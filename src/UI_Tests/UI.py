@@ -47,7 +47,7 @@ def test_buying(browser):
     main_page.add_to_cart()
     time.sleep(3)
     main_page.go_to_checkout()
-    checkout = CheckoutLocatorsHelper(browser)
+    checkout = CheckoutHelper(browser)
     checkout.completion_order()
     assert "Your order on My Store is complete." in checkout.check_completed_order()
     checkout.teardown()
