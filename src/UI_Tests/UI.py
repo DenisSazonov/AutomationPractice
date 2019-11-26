@@ -11,7 +11,7 @@ def test_registration(browser):
     login_page.enter_new_email(new_email)
     login_page.submit_new_email()
     register_page = RegisterNewAccountHelper(browser)
-    register_page.create_new_account("Myfirstname", "Mysecondname", password, "Bottle Company", "Bobruisk", "2",
+    register_page.create_new_account("Myfirstname", "Mysecondname", password, "Bottle Company", "Bobruisk",
                                      "12312", "123123123")
     my_account_page = MyAccountHelper(browser)
     success_login = my_account_page.check_my_account()
