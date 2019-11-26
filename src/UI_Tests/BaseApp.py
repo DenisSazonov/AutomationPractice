@@ -3,6 +3,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support.ui import Select
 
+
 class AutomationPractice:
 
     def __init__(self, driver):
@@ -28,8 +29,12 @@ class AutomationPractice:
     def go_to_login_page(self):
         return self.driver.get(self.login_page_url)
 
-    def mouse_over(self, locator):
-        return ActionChains(self.driver).move_to_element(locator)
+    def mouse_over(self, to_element):
+        # return ActionChains(self.driver).move_to_element(locator)
+        hover = ActionChains(self.driver)
+        element = self.find_element(to_element)
+        hover.move_to_element(element)
+        hover.perform()
 
     def select_from_dropdown(self, locator):
         return Select(self.driver(locator))
