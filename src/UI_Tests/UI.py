@@ -1,7 +1,7 @@
 import time
 from src.UI_Tests.Pages import *
 import sys
-sys.path.append('/src/UI_tests/')
+sys.path.append('/var/lib/jenkins/workspace/test/src/UI_Tests/')
 
 
 # Registration
