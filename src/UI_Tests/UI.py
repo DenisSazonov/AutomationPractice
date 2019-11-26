@@ -1,5 +1,7 @@
 import time
 from src.UI_Tests.Pages import *
+import sys
+sys.path.append('/src/UI_tests/')
 
 
 # Registration
