@@ -91,7 +91,7 @@ class RegisterNewAccountHelper(AutomationPractice):
         self.find_element(RegisterNewAccoutLocators.locator_registration_password_field).send_keys(password)
         self.find_element(RegisterNewAccoutLocators.locator_registration_address).send_keys(address)
         self.find_element(RegisterNewAccoutLocators.locator_registration_city).send_keys(city)
-        Select(self.find_element(RegisterNewAccoutLocators.locator_state_dropdown)).select_by_index(2)
+        self.select_from_dropdown(RegisterNewAccoutLocators.locator_state_dropdown, 2)
         self.find_element(RegisterNewAccoutLocators.locator_post_code).send_keys(postcode)
         self.find_element(RegisterNewAccoutLocators.locator_mobile_phone).send_keys(phone_num)
         self.find_element(RegisterNewAccoutLocators.locator_register_button).click()

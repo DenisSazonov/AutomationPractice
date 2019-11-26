@@ -30,14 +30,13 @@ class AutomationPractice:
         return self.driver.get(self.login_page_url)
 
     def mouse_over(self, to_element):
-        # return ActionChains(self.driver).move_to_element(locator)
         hover = ActionChains(self.driver)
         element = self.find_element(to_element)
         hover.move_to_element(element)
         hover.perform()
 
-    def select_from_dropdown(self, locator):
-        return Select(self.driver(locator))
+    def select_from_dropdown(self, locator, index):
+        Select(self.find_element(locator)).select_by_index(index)
 
     def teardown(self):
         return self.driver.delete_all_cookies()
