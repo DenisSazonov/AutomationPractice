@@ -5,13 +5,9 @@ from src.UI_Tests.BaseApp import AutomationPractice
 class MainPageLocators:
     locator_sign_in_button = (By.CLASS_NAME, "login")
     locator_sign_out_button = (By.CLASS_NAME, "logout")
-    locator_product_container = (By.XPATH, "//ul[@id='homefeatured']//li[@class='ajax_block_product col-xs-12 "
-                                           "col-sm-4 col-md-3 first-in-line first-item-of-tablet-line "
-                                           "first-item-of-mobile-line']//div[@class='product-container']")
-    locator_proceed_to_checkout_button = (By.XPATH, "//span[contains(text(),'Proceed to checkout')]")
-    locator_add_to_cart_button = (By.XPATH, "//li[@class='ajax_block_product col-xs-12 col-sm-4 col-md-3 "
-                                            "first-in-line first-item-of-tablet-line first-item-of-mobile-line "
-                                            "hovered']//span[contains(text(),'Add to cart')]")
+    locator_product_container = (By.CSS_SELECTOR, "#homefeatured>li:nth-child(1)")
+    locator_proceed_to_checkout_button = (By.CSS_SELECTOR, ".btn.btn-default.button.button-medium")
+    locator_add_to_cart_button = (By.CSS_SELECTOR, "#homefeatured>li:nth-child(1) [data-id-product='1']")
 
 
 class MainPageHelper(AutomationPractice):
@@ -33,8 +29,8 @@ class MainPageHelper(AutomationPractice):
 
 
 class LoginPageLocators:
-    locator_new_email_field = (By.XPATH, "//input[@id='email_create']")
-    locator_create_account_button = (By.CSS_SELECTOR, "#SubmitCreate")
+    locator_new_email_field = (By.ID, "email_create")
+    locator_create_account_button = (By.ID, "SubmitCreate")
     locator_email_field = (By.ID, "email")
     locator_password_field = (By.ID, "passwd")
     locator_login_button = (By.ID, "SubmitLogin")
@@ -101,15 +97,12 @@ class RegisterNewAccountHelper(AutomationPractice):
 
 
 class CheckoutLocators:
-    locator_proceed_button_summary_tab = (By.XPATH, "//a[@class='button btn btn-default standard-checkout "
-                                                    "button-medium']//span[contains(text(),'Proceed to checkout')]")
-    locator_proceed_button_address_tab = (By.XPATH, "//button[@name='processAddress']//span[contains(text(),'Proceed "
-                                                    "to checkout')]")
-    locator_proceed_button_shipping_tab = (By.XPATH, "//button[@name='processCarrier']//span[contains(text(),'Proceed "
-                                                     "to checkout')]")
-    locator_checkbox_terms = (By.XPATH, "//input[@id='cgv']")
-    locator_bank_wire_button = (By.XPATH, "//a[@class='bankwire']")
-    locator_confirm_order_button = (By.XPATH, "//span[contains(text(),'I confirm my order')]")
+    locator_proceed_button_summary_tab = (By.CSS_SELECTOR, "p>a[title='Proceed to checkout']")
+    locator_proceed_button_address_tab = (By.CSS_SELECTOR, "p>button[name='processAddress']")
+    locator_proceed_button_shipping_tab = (By.CSS_SELECTOR, "p>button[name='processCarrier']")
+    locator_checkbox_terms = (By.ID, "cgv")
+    locator_bank_wire_button = (By.CSS_SELECTOR, "[class='bankwire']")
+    locator_confirm_order_button = (By.CSS_SELECTOR, "[type='submit'][xpath='1']")
     locator_completed_order = (By.CLASS_NAME, "cheque-indent")
 
 
