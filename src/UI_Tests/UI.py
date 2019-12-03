@@ -1,8 +1,10 @@
 import time
-from src.UI_Tests.Pages import *
+import pytest
+from .Pages import *
 
 
 # Registration
+@pytest.mark.smoke
 def test_registration(browser):
     new_email = str(time.time()) + "@mail.ru"
     password = str(time.time())
@@ -16,10 +18,10 @@ def test_registration(browser):
     my_account_page = MyAccountHelper(browser)
     success_login = my_account_page.check_my_account()
     assert "MY ACCOUNT" in success_login
-    login_page.teardown()
 
 
 # Sign in
+@pytest.mark.smoke
 def test_login(browser):
     main_page = MainPageHelper(browser)
     main_page.go_to_site()
@@ -31,10 +33,10 @@ def test_login(browser):
     my_account_page = MyAccountHelper(browser)
     success_login = my_account_page.check_my_account()
     assert "MY ACCOUNT" in success_login
-    login_page.teardown()
 
 
 # Buying
+@pytest.mark.smoke
 def test_buying(browser):
     main_page = MainPageHelper(browser)
     main_page.go_to_site()
@@ -50,10 +52,10 @@ def test_buying(browser):
     checkout = CheckoutHelper(browser)
     checkout.completion_order()
     assert "Your order on My Store is complete." in checkout.check_completed_order()
-    checkout.teardown()
 
 
 # Sign out
+@pytest.mark.smoke
 def test_sign_out(browser):
     main_page = MainPageHelper(browser)
     main_page.go_to_site()
@@ -64,4 +66,3 @@ def test_sign_out(browser):
     login_page.click_sign_in()
     main_page.logout()
     assert "Sign in" in main_page.check_logout()
-    main_page.teardown()

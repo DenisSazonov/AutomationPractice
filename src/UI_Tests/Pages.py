@@ -3,7 +3,7 @@ from src.UI_Tests.BaseApp import AutomationPractice
 
 
 class MainPageLocators:
-    locator_sign_in_button = (By.CLASS_NAME, "login")
+    locator_sign_in_button = (By.CSS_SELECTOR, ".login")
     locator_sign_out_button = (By.CLASS_NAME, "logout")
     locator_product_container = (By.CSS_SELECTOR, "#homefeatured>li:nth-child(1)")
     locator_proceed_to_checkout_button = (By.CSS_SELECTOR, ".btn.btn-default.button.button-medium")
@@ -102,7 +102,7 @@ class CheckoutLocators:
     locator_proceed_button_shipping_tab = (By.CSS_SELECTOR, "p>button[name='processCarrier']")
     locator_checkbox_terms = (By.ID, "cgv")
     locator_bank_wire_button = (By.CSS_SELECTOR, "[class='bankwire']")
-    locator_confirm_order_button = (By.CSS_SELECTOR, "[type='submit'][xpath='1']")
+    locator_confirm_order_button = (By.CSS_SELECTOR, "p [type='submit']")
     locator_completed_order = (By.CLASS_NAME, "cheque-indent")
 
 

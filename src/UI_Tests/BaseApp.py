@@ -37,5 +37,3 @@ class AutomationPractice:
     def select_from_dropdown(self, locator, index):
         Select(self.find_element(locator)).select_by_index(index)
 
-    def teardown(self):
-        return self.driver.delete_all_cookies()
