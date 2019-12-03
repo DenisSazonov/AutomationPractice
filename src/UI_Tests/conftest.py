@@ -1,6 +1,7 @@
 import pytest
 from selenium import webdriver
 
+
 # @pytest.fixture(scope="session")
 # def browser():
 #     driver = webdriver.Chrome(executable_path="C:\chromedriver.exe")
@@ -17,7 +18,7 @@ capabilities = {
 }
 
 
-@pytest.fixture(scope="session")
+@pytest.fixture(scope="function")
 def browser():
     driver = webdriver.Remote(
         command_executor="http://10.20.12.202:4444/wd/hub",
@@ -25,4 +26,4 @@ def browser():
     driver.maximize_window()
     yield driver
     driver.delete_all_cookies()
-    driver.close()
+    driver.quit()

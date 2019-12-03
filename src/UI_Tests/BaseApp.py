@@ -3,6 +3,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support.ui import Select
 
+
 class AutomationPractice:
 
     def __init__(self, driver):
@@ -14,8 +15,7 @@ class AutomationPractice:
 
     def find_element(self, locator, time=10):
         return WebDriverWait(self.driver, time). \
-            until(EC.presence_of_element_located(locator),
-                  message=f"Can't find element by locator {locator}")
+            until(EC.presence_of_element_located(locator))
 
     # def find_elements(self, locator, time=10):
     #     return WebDriverWait(self.driver, time). \
@@ -28,11 +28,12 @@ class AutomationPractice:
     def go_to_login_page(self):
         return self.driver.get(self.login_page_url)
 
-    def mouse_over(self, locator):
-        return ActionChains(self.driver).move_to_element(locator)
+    def mouse_over(self, to_element):
+        hover = ActionChains(self.driver)
+        element = self.find_element(to_element)
+        hover.move_to_element(element)
+        hover.perform()
 
-    def select_from_dropdown(self, locator):
-        return Select(self.driver(locator))
+    def select_from_dropdown(self, locator, index):
+        Select(self.find_element(locator)).select_by_index(index)
 
-    def teardown(self):
-        return self.driver.delete_all_cookies()
