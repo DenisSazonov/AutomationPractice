@@ -2,7 +2,8 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support.ui import Select
-
+from configparser import ConfigParser
+import os
 
 class AutomationPractice:
 
@@ -37,3 +38,20 @@ class AutomationPractice:
     def select_from_dropdown(self, locator, index):
         Select(self.find_element(locator)).select_by_index(index)
 
+    @staticmethod
+    def return_password():
+        current_dir = os.path.abspath(os.path.dirname(__file__))
+        file_path = os.path.join(current_dir, 'credentials.txt')
+        config = ConfigParser()
+        config.read(file_path)
+        password = config.get("credentials", "password")
+        return password
+
+    @staticmethod
+    def return_email():
+        current_dir = os.path.abspath(os.path.dirname(__file__))
+        file_path = os.path.join(current_dir, 'credentials.txt')
+        config = ConfigParser()
+        config.read(file_path)
+        email = config.get("credentials", "email")
+        return email

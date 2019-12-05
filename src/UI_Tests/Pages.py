@@ -38,10 +38,12 @@ class LoginPageLocators:
 
 class LoginPageHelper(AutomationPractice):
 
-    def enter_credentials(self, login, password):
+    def enter_credentials(self):
         email_field = self.find_element(LoginPageLocators.locator_email_field)
-        email_field.send_keys(login)
+        email = AutomationPractice.return_email()
+        email_field.send_keys(email)
         password_field = self.find_element(LoginPageLocators.locator_password_field)
+        password = AutomationPractice.return_password()
         password_field.send_keys(password)
         return password_field, email_field
 

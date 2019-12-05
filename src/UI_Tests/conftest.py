@@ -18,10 +18,6 @@ capabilities = {
 }
 
 
-def pytest_addoption(parser):
-    parser.addoption('--language', action='store', default='ru', help="Choose language")
-
-
 @pytest.fixture(scope="function")
 def browser():
     driver = webdriver.Remote(
@@ -31,3 +27,7 @@ def browser():
     yield driver
     driver.delete_all_cookies()
     driver.quit()
+
+
+# def pytest_addoption(parser):
+#     parser.addoption('--language', action='store', default='ru', help="Choose language")
