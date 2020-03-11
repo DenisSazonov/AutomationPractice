@@ -2,7 +2,6 @@ from src.Pages.loginPage import LoginPageHelper, LoginPageLocators
 import pytest
 
 
-
 @pytest.mark.parametrize('email', ["!@#$%^&*()", "123", "asd", "   ", ""])
 def test_create_account_with_invalid_credentials(browser, email):
     login_page = LoginPageHelper(browser)
